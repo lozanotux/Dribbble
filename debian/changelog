@@ -1,0 +1,5 @@
+notify-app (0.1) xenial; urgency=low
+
+  * Initial Release.
+
+ -- Juan Pablo Lozano <lozanotux@gmail.com>  Tue, 15 Aug 2017 12:47:39 -0500

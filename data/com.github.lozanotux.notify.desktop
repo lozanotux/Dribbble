@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Notify App
+GenericName=A Notification App
+Comment=Proves Notifications that we can use Vala and Gtk
+Categories=Utility;Education;
+Exec=com.github.lozanotux.notify
+Icon=dialog-warning
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=notify-app
+Keywords=Notify;App;Example;

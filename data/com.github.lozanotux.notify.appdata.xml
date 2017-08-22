@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Your Name <you@email.com> -->
+<component type="desktop">
+  <id>com.github.lozanotux.notify.desktop</id>
+  <metadata_license>CC0</metadata_license>
+  <name>Notify App</name>
+  <summary>A Notify App Example</summary>
+  <description>
+    <p>My First Notify Elementary App.</p>
+  </description>
+</component>
+<custom>
+     <value key="x-appcenter-color-primary">#603461</value>
+     <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
+     <value key="x-appcenter-suggested-price">0</value>
+</custom>
