@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Your Name <you@email.com> -->
 <component type="desktop">
-  <id>com.github.lozanotux.notify.desktop</id>
+  <id>com.github.lozanotux.dribbble.desktop</id>
   <metadata_license>CC0</metadata_license>
-  <name>Notify App</name>
-  <summary>A Notify App Example</summary>
+  <name>Dribbble</name>
+  <summary>Cascade Style Player For Your Music</summary>
   <description>
-    <p>My First Notify Elementary App.</p>
+    <p>Play your songs easly opening or draging your folders or files directly to playlist.</p>
   </description>
 </component>
 <custom>
-     <value key="x-appcenter-color-primary">#603461</value>
+     <value key="x-appcenter-color-primary">#FE639E</value>
      <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
      <value key="x-appcenter-suggested-price">0</value>
 </custom>

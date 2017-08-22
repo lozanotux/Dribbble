@@ -22,7 +22,7 @@
 using Gtk;
 using GLib;
 
-public class Player : HeaderBar {
+public class Controls : HeaderBar {
 
     private ToolButton backward_button;
     private ToolButton play_button;
@@ -31,7 +31,7 @@ public class Player : HeaderBar {
     private Button random_button;
     private Button equalizer_button;
 
-    public Player () {
+    public Controls () {
 
         /*
          * Set Defaults
@@ -89,17 +89,13 @@ public class Player : HeaderBar {
         player_box.pack_start (forward_button, false, true, 0);
 
 
-        var option_box = new Box (Gtk.Orientation.HORIZONTAL, 0);
-        var option_fix_box = new Box (Gtk.Orientation.VERTICAL, 0);
-        Separator option_fix_separator = new Separator (Gtk.Orientation.VERTICAL);
-        option_box.pack_start (sequential_button, false, false, 0);
-        option_box.pack_start (random_button, false, false, 0);
-        option_box.pack_start (equalizer_button, false, false, 8);
-        option_fix_box.pack_start (option_fix_separator, true, true, 0);
-        option_fix_box.pack_start (option_box, false, false, 0);
+        var equalizer_box = new Box (Gtk.Orientation.HORIZONTAL, 0);
+        equalizer_box.pack_start (equalizer_button, false, true, 8);
 
         this.custom_title = player_box;
-        this.pack_end (option_fix_box);
+        this.pack_end (equalizer_box);
+        this.pack_end (random_button);
+        this.pack_end (sequential_button);
         this.show_all ();
 
     }

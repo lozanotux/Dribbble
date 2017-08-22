@@ -6,6 +6,6 @@
 	background-image: -gtk-gradient (linear, left top, left bottom, from (shade (#FFFFFF, 1.00)), to (shade (#FFFFFF, 1.00)));
 }
 
-ActionBar, .statusbar {
+.statusbar Box {
 	background-image: -gtk-gradient (linear, left top, left bottom, from (shade (#FE639E, 1.00)), to (shade (#D3306F, 1.00)));
 }

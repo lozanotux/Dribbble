@@ -35,9 +35,9 @@ public class Dribbble : Gtk.Application {
         app_window.set_default_size (320, 600);
         app_window.set_resizable (false);
 
-        var player = new Player ();
-        player.get_style_context ().add_class("csd");
-        app_window.set_titlebar (player);
+        var controls = new Controls ();
+        controls.get_style_context ().add_class("csd");
+        app_window.set_titlebar (controls);
         app_window.get_style_context ().add_class("main_window");
 
         var main_box = new Box (Gtk.Orientation.VERTICAL, 0);
@@ -45,8 +45,8 @@ public class Dribbble : Gtk.Application {
         Separator welcome_top_expander = new Separator (Gtk.Orientation.VERTICAL);
         Separator welcome_bot_expander = new Separator (Gtk.Orientation.VERTICAL);
 
-        var open_img = new Image.from_file ("../data/folder-open.svg");
-        var drag_img = new Image.from_file ("../data/drag-music.png");
+        var open_img = new Image.from_file ("/usr/share/dribbble/folder-open.svg");
+        var drag_img = new Image.from_file ("/usr/share/dribbble/drag-music.png");
 
         var welcome_screen = new Welcome("Playlist is Empty", "Add music to start jamming out");
         welcome_screen.valign = Gtk.Align.FILL;
@@ -76,7 +76,7 @@ public class Dribbble : Gtk.Application {
         main_box.pack_start (welcome_top_expander, true, true, 0);
         main_box.pack_start (welcome_screen, true, true, 0);
         main_box.pack_start (welcome_bot_expander, true, true, 0);
-        //main_box.pack_end (status_bar, false, true, 0);
+        main_box.pack_end (status_bar, false, true, 0);
 
         app_window.add (main_box);
         app_window.show_all ();
@@ -85,7 +85,7 @@ public class Dribbble : Gtk.Application {
     public static int main (string[] args) {
         Gtk.init (ref args);//Initializes GTK+
 
-        string css_file = "/home/developer/Projects/Dribbble/src/estilos.css";//CSS file path
+        string css_file = "/usr/share/dribbble/stylesheet.css";//CSS file path
 	    var css_provider = new Gtk.CssProvider ();//Create a new CSS Provider
 
 	    try
@@ -93,8 +93,8 @@ public class Dribbble : Gtk.Application {
 		    css_provider.load_from_path (css_file);//Load the CSS file from the above path (string)
 		    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);//Establece un contexto de estilo y la prioridad
 	    } catch (Error e) {//Capturing Error
-	  	    stderr.printf ("COM.HASHIT.CORE: [ERROR LOADING CSS STYLES [%s]]\n", e.message);
-	  	    stderr.printf (">>> Check path: /usr/share/hashit/ui/gtk-widgets.css\n");
+	  	    stderr.printf ("COM.DRIBBBLE.CORE: [ERROR LOADING CSS STYLES [%s]]\n", e.message);
+	  	    stderr.printf (">>> Check path: /usr/share/dribbble/stylesheet.css\n");
 	    }
 
         var app = new Dribbble ();
