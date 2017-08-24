@@ -37,8 +37,7 @@ public class Controls : HeaderBar {
          * Set Defaults
          */
         this.show_close_button = true;
-        this.has_subtitle = true;        
-
+        
         /*
          * Create Buttons
          */

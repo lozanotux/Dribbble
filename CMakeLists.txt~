@@ -40,9 +40,6 @@
     include(ValaPrecompile)
     vala_precompile(VALA_C ${EXEC_NAME}
         src/Widgets/Controls.vala
-        src/Widgets/StatusBar.vala
-        src/Widgets/WelcomeView.vala
-
         src/Dribbble.vala
 
     # tell what libraries to use when compiling
@@ -71,11 +68,7 @@
     install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/stylesheet.css DESTINATION ${DATADIR}/dribbble/)
     install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/folder-open.svg DESTINATION ${DATADIR}/dribbble/)
     install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/drag-music.png DESTINATION ${DATADIR}/dribbble/)
-    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/dribbble.svg DESTINATION ${DATADIR}/icons/hicolor/24x24/apps)
-    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/dribbble.svg DESTINATION ${DATADIR}/icons/hicolor/32x32/apps)
-    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/dribbble.svg DESTINATION ${DATADIR}/icons/hicolor/48x48/apps)
-    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/dribbble.svg DESTINATION ${DATADIR}/icons/hicolor/64x64/apps)
-    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/dribbble.svg DESTINATION ${DATADIR}/icons/hicolor/128x128/apps)
+    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/dribbble.svg DESTINATION ${DATADIR}/pixmaps/)
 
     #Uninstall target
     configure_file(

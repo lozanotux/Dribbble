@@ -35,48 +35,21 @@ public class Dribbble : Gtk.Application {
         app_window.set_default_size (320, 600);
         app_window.set_resizable (false);
 
+        var main_box = new Box (Gtk.Orientation.VERTICAL, 0);
+
         var controls = new Controls ();
+        var welcome_screen = new WelcomeView ();
+        var status_bar = new StatusBar ();
+
+
         controls.get_style_context ().add_class("csd");
         app_window.set_titlebar (controls);
         app_window.get_style_context ().add_class("main_window");
 
-        var main_box = new Box (Gtk.Orientation.VERTICAL, 0);
 
-        Separator welcome_top_expander = new Separator (Gtk.Orientation.VERTICAL);
-        Separator welcome_bot_expander = new Separator (Gtk.Orientation.VERTICAL);
-
-        var open_img = new Image.from_file ("/usr/share/dribbble/folder-open.svg");
-        var drag_img = new Image.from_file ("/usr/share/dribbble/drag-music.png");
-
-        var welcome_screen = new Welcome("Playlist is Empty", "Add music to start jamming out");
-        welcome_screen.valign = Gtk.Align.FILL;
-        welcome_screen.halign = Gtk.Align.FILL;
-        welcome_screen.vexpand = true;
-        welcome_screen.append_with_image (open_img, "Add From Folder", "Pick a folder with your music in it");
-        welcome_screen.append_with_image (drag_img, "Drag n' Drop", "Toss your music in here");
-        welcome_screen.set_border_width (32);
-
-        ActionBar status_bar = new ActionBar ();
-        status_bar.get_style_context ().add_class ("statusbar");
-        //ADD BUTTON
-        var add_img = new Image ();
-        add_img.set_from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU);
-        Button add_button = new Button ();
-        add_button.set_image (add_img);
-        add_button.tooltip_text = "Add Folder";
-        //REMOVE BUTTON
-        var rem_img = new Image ();
-        rem_img.set_from_icon_name ("list-remove-symbolic", Gtk.IconSize.MENU);
-        Button rem_button = new Button ();
-        rem_button.set_image (rem_img);
-        rem_button.tooltip_text = "Remove Folder";
-        status_bar.pack_start (add_button);
-        status_bar.pack_start (rem_button);
-
-        main_box.pack_start (welcome_top_expander, true, true, 0);
         main_box.pack_start (welcome_screen, true, true, 0);
-        main_box.pack_start (welcome_bot_expander, true, true, 0);
         main_box.pack_end (status_bar, false, true, 0);
+        main_box.set_size_request (320, 500);
 
         app_window.add (main_box);
         app_window.show_all ();
