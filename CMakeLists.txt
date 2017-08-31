@@ -23,7 +23,7 @@
     find_package(PkgConfig)
 
     # now let's actually check for the required dependencies
-    pkg_check_modules(DEPS REQUIRED gtk+-3.0 glib-2.0 granite)
+    pkg_check_modules(DEPS REQUIRED gtk+-3.0 glib-2.0 granite gstreamer-1.0 gstreamer-pbutils-1.0)
 
     add_definitions(${DEPS_CFLAGS})
     link_libraries(${DEPS_LIBRARIES})
@@ -40,6 +40,7 @@
     include(ValaPrecompile)
     vala_precompile(VALA_C ${EXEC_NAME}
         src/Widgets/Controls.vala
+        src/Widgets/InformationView.vala
         src/Widgets/StatusBar.vala
         src/Widgets/WelcomeView.vala
 
@@ -50,7 +51,12 @@
         gtk+-3.0
         glib-2.0
         granite
+        gstreamer-1.0
+        gstreamer-pbutils-1.0
     )
+
+    # GSchemas files
+    add_subdirectory (data)
 
     # Translation files
     set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")

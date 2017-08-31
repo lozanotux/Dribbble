@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<schema path="/org/dribbble/" id="org.dribbble" gettext-domain="dribbble">
+		 <key name="opening-x" type="i">
+            <default>-1</default>
+            <summary>Posicion X de la Ventana</summary>
+            <description>Guarda la Posicion X de la ventana para restaurarla mas tarde.</description>
+        </key>
+        <key name="opening-y" type="i">
+            <default>-1</default>
+            <summary>Posicion Y de la Ventana</summary>
+            <description>Guarda la Posicion Y de la ventana para restaurarla mas tarde.</description>
+        </key>
+	</schema>
+</schemalist>

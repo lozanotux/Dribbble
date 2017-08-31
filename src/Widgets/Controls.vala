@@ -25,7 +25,7 @@ using GLib;
 public class Controls : HeaderBar {
 
     private ToolButton backward_button;
-    private ToolButton play_button;
+    public ToolButton play_button;
     private ToolButton forward_button;
     private Button sequential_button;
     private Button random_button;
