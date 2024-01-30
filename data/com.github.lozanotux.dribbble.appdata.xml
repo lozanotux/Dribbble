@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2017 Your Name <you@email.com> -->
-<component type="desktop">
-  <id>com.github.lozanotux.dribbble.desktop</id>
-  <metadata_license>CC0</metadata_license>
+<component type="desktop-application">
+  <branding>
+    <color type="primary">#FE639E</color>
+    <color type="primary-text">#ffffff</color>
+  </branding>
+
+  <id>com.github.lozanotux.dribbble</id>
+  
   <name>Dribbble</name>
   <summary>Cascade Style Player For Your Music</summary>
+
+  <developer_name>Juan Pablo Lozano</developer_name>
+  <update_contact>lozanotux@gmail.com</update_contact>
+
+  <metadata_license>CC-BY-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  
   <description>
-    <p>Play your songs easly opening or draging your folders or files directly to playlist.</p>
+    <p>
+      Play your songs easly opening or draging your folders or files directly to playlist.
+    </p>
   </description>
+
+  <launchable type="desktop-id">com.github.lozanotux.dribbble.desktop</launchable>
+  <translation type="gettext">com.github.lozanotux.dribbble</translation>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://screenshot1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://screenshot2.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://screenshot3.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <provides>
+    <binary>com.github.lozanotux.dribbble</binary>
+  </provides>
+
+  <url type="bugtracker">https://github.com/lozanotux/Dribbble/issues</url>
+  <url type="help">https://github.com/lozanotux/Dribbble/wiki</url>
+  <url type="homepage">https://github.com/lozanotux/Dribbble</url>
+
+  <releases>
+    <release version="1.0.0" date="2024-01-29">
+      <description>
+        <p>Initial release, includes features such as:</p>
+        <ul>
+          <li>Application can be launched 🚀</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
 </component>
-<custom>
-     <value key="x-appcenter-color-primary">#FE639E</value>
-     <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
-     <value key="x-appcenter-suggested-price">0</value>
-</custom>

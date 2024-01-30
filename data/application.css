@@ -1,0 +1,32 @@
+@define-color colorPrimary #FE639E;
+@define-color textColorPrimary #fff;
+@define-color textColorPrimaryShadow #D3306F;
+@define-color titlebar_color #FE639E;
+
+.header-bar {
+	background-color: @titlebar_color;
+	box-shadow: inset 0 -12px 12px @textColorPrimaryShadow;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #9a355d;
+}
+
+.main-window {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.info-view {
+	
+}
+
+.status-bar {
+	color: @textColorPrimary;
+	background-color: @titlebar_color;
+	box-shadow: inset 0 1px 1px #FFFFFF;
+	border-top: 1px solid #9a355d;
+	padding: 0;
+}
+
+.statusbar-icon {
+	padding: 0;
+}

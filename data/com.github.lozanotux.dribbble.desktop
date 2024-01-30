@@ -1,11 +1,14 @@
 [Desktop Entry]
-Name=Dribbble
-GenericName=Dribbble
-Comment=Cascade Style Player For Your Music
-Categories=Audio;Music;Player;AudioVideo;GNOME;GTK;
-Exec=com.github.lozanotux.dribbble
-Icon=dribbble
-Terminal=false
+Version=1.0
 Type=Application
-X-GNOME-Gettext-Domain=dribbble
+
+Name=Dribbble
+GenericName=Dribbble Music Player
+Comment=Cascade Style Player For Your Music
+
+Categories=Audio;Music;Player;AudioVideo;GNOME;GTK;
 Keywords=Music;App;Dribbble;
+
+Exec=com.github.lozanotux.dribbble
+Icon=com.github.lozanotux.dribbble
+Terminal=false
