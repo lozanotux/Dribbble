@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/lozanotux/dribbble">
+    <file alias="application.css" compressed="true">application.css</file>
+  </gresource>
+  <gresource prefix="com/github/lozanotux/dribbble/icons">
+    <file alias="48x48/actions/custom-album-art.svg" compressed="true" preprocess="xml-stripblanks">icons/custom-album-art.svg</file>
+    <file alias="48x48@2/actions/custom-album-art.svg" compressed="true" preprocess="xml-stripblanks">icons/custom-album-art.svg</file>    
+  </gresource>
+</gresources>
