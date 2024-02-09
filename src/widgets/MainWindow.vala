@@ -16,11 +16,13 @@ public class MainWindow : Gtk.ApplicationWindow {
 
     private Gtk.Button backward_button;
     public Gtk.Button play_button;
+    public Gtk.Button pause_button;
     private Gtk.Button forward_button;
     private Gtk.Button sequential_button;
     private Gtk.Button random_button;
     private Gtk.Button equalizer_button;
 
+    private bool paused = false;
     private bool playing = false;
 
     public MainWindow (Gtk.Application application) {
@@ -51,6 +53,10 @@ public class MainWindow : Gtk.ApplicationWindow {
         // PLAY BUTTON
         play_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic");
         play_button.tooltip_text = "Play Song";
+
+        // PAUSE BUTTON
+        pause_button = new Gtk.Button.from_icon_name ("media-playback-pause-symbolic");
+        pause_button.tooltip_text = "Pause";
 
         //FORWARD BUTTON
         forward_button = new Gtk.Button.from_icon_name ("media-seek-forward-symbolic");
@@ -126,44 +132,64 @@ public class MainWindow : Gtk.ApplicationWindow {
 	    });
 
         play_button.clicked.connect (() => {
-            // Creating elements
-            pipeline = Gst.ElementFactory.make ("playbin", "player");
-            pipeline.set ("uri", info_view.path.get_text ());
+            // Change play button with pause button
+            player_box.remove (play_button);
+            player_box.insert_child_after (pause_button, backward_button);
 
-            // Adding a callback for pipeline events
-            var bus = pipeline.get_bus ();
-            bus.add_watch (GLib.Priority.DEFAULT, on_bus_callback);
+            if ((paused) && (!playing)) {
+                pipeline.set_state (Gst.State.PLAYING);
+                paused = false;
+                playing = true;
+            } else {
+                // Creating elements
+                pipeline = Gst.ElementFactory.make ("playbin", "player");
+                pipeline.set ("uri", info_view.path.get_text ());
 
-            // Set pipeline state to PLAYING
-            pipeline.set_state (Gst.State.PLAYING);
-            playing = true;
+                // Adding a callback for pipeline events
+                var bus = pipeline.get_bus ();
+                bus.add_watch (GLib.Priority.DEFAULT, on_bus_callback);
 
-            // Print tags
-            unowned Gst.TagList? tags = info.get_tags ();
-            string artist_s;
-            tags.get_string (Gst.Tags.ARTIST, out artist_s);
-            string title_s;
-            tags.get_string (Gst.Tags.TITLE, out title_s);
-            info_view.title.set_markup ("<b>" + title_s + "</b>");
-            info_view.artist.set_label (artist_s);
+                // Set pipeline state to PLAYING
+                pipeline.set_state (Gst.State.PLAYING);
+                playing = true;
 
-            string album_s;
-            tags.get_string (Gst.Tags.ALBUM, out album_s);
+                // Print tags
+                unowned Gst.TagList? tags = info.get_tags ();
+                string artist_s;
+                tags.get_string (Gst.Tags.ARTIST, out artist_s);
+                string title_s;
+                tags.get_string (Gst.Tags.TITLE, out title_s);
+                info_view.title.set_markup ("<b>" + title_s + "</b>");
+                info_view.artist.set_label (artist_s);
 
-            uint64 dur = info.get_duration ();
-            int segundos = (int) (dur / 1000000000) % 60;
-            int minutos = (int) (dur / 60000000000);
+                string album_s;
+                tags.get_string (Gst.Tags.ALBUM, out album_s);
 
-            info_view.total_time.set_label (minutos.to_string() + ":" + segundos.to_string());
+                uint64 dur = info.get_duration ();
+                int segundos = (int) (dur / 1000000000) % 60;
+                int minutos = (int) (dur / 60000000000);
 
-            //  string img_s;
-            //  tags.get_string (Gst.Tags.IMAGE, out img_s);
-            //  message ("IMG_S: %s", img_s);
-            //  uchar[] data_img = GLib.Base64.decode (img_s);
-            
-            // running main loop
-            message ("Running...");
-            loop.run ();
+                info_view.total_time.set_label (minutos.to_string() + ":" + segundos.to_string());
+
+                //  string img_s;
+                //  tags.get_string (Gst.Tags.IMAGE, out img_s);
+                //  message ("IMG_S: %s", img_s);
+                //  uchar[] data_img = GLib.Base64.decode (img_s);
+                
+                // running main loop
+                message ("Playing...");
+                loop.run ();
+            }
+        });
+
+        pause_button.clicked.connect (() => {
+            pipeline.set_state (Gst.State.PAUSED);
+            paused = true;
+            playing = false;
+
+            // Change play button with pause button
+            player_box.remove (pause_button);
+            player_box.insert_child_after (play_button, backward_button);
         });
         
         main_box.prepend (info_view);
