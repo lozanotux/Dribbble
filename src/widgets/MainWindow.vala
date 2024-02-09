@@ -203,7 +203,7 @@ public class MainWindow : Gtk.ApplicationWindow {
          * SAVE APPLICATION SETTINGS IN GCONF
          ************************************/
         close_request.connect (() => {
-            if (playing) {
+            if ((playing) || (paused)) {
                pipeline.set_state (Gst.State.NULL);
             }
             Gst.deinit ();
